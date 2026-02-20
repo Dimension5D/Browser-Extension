@@ -8,9 +8,13 @@ let list = [];
 render(list);
 
 saveBtn.addEventListener("click", function () {
+    if (localStorage.getItem("list")) {
+       list = JSON.parse(localStorage.getItem("list")) 
+    }
     const value = input.value;
     list.push(value);
     render(list);
+    localStorage.setItem("list", JSON.stringify(list));
 });
 
 function render(list) {
