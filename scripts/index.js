@@ -25,8 +25,8 @@ tabBtn.addEventListener("click", function () {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
         const activeTab = tabs[0];
         if (activeTab) {
-            list.push(activeTab);
-            render();
+            list.push(activeTab.url);
+            render(list);
         }
     })
 });
