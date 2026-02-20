@@ -2,6 +2,8 @@
 const saveBtn = document.getElementById("save-btn");
 const input = document.querySelector(".input");
 const listContainer = document.getElementById("list");
+const tabBtn = document.getElementById("tab-btn");
+
 let list = [];
 render(list);
 
@@ -18,3 +20,13 @@ function render(list) {
     }
     listContainer.innerHTML = output;
 }
+
+tabBtn.addEventListener("click", function () {
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+        const activeTab = tabs[0];
+        if (activeTab) {
+            list.push(activeTab);
+            render();
+        }
+    })
+});
