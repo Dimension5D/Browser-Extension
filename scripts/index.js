@@ -3,6 +3,7 @@ const saveBtn = document.getElementById("save-btn");
 const input = document.querySelector(".input");
 const listContainer = document.getElementById("list");
 const tabBtn = document.getElementById("tab-btn");
+const clearBtn = document.getElementById("clear-btn");
 
 let list = [];
 if (localStorage.getItem("list")) {
@@ -34,3 +35,9 @@ tabBtn.addEventListener("click", function () {
         }
     })
 });
+
+clearBtn.addEventListener("click", function () {
+    localStorage.clear();
+    list = [];
+    render(list);
+})
