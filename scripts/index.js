@@ -20,7 +20,7 @@ saveBtn.addEventListener("click", function () {
 function render(list) {
     let output = "";
     for (let i=0;i<list.length; i++) {
-        output += `<li><a href="${list[i]}">${list[i]}</a></li>`;
+        output += `<li><a href="${list[i]}" target="_blank">${list[i]}</a></li>`;
     }
     listContainer.innerHTML = output;
 }
