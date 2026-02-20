@@ -51,3 +51,12 @@ main {
     border: 2px solid white;
     color: white;
 }
+
+#list {
+    list-style: none;
+}
+
+#list a {
+   text-decoration: none; 
+   color: greenyellow;
+}
