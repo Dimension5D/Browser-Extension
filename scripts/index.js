@@ -5,12 +5,11 @@ const listContainer = document.getElementById("list");
 const tabBtn = document.getElementById("tab-btn");
 
 let list = [];
-render(list);
+if (localStorage.getItem("list")) {
+    list = JSON.parse(localStorage.getItem("list"))
+}
 
 saveBtn.addEventListener("click", function () {
-    if (localStorage.getItem("list")) {
-       list = JSON.parse(localStorage.getItem("list")) 
-    }
     const value = input.value;
     list.push(value);
     render(list);
@@ -31,6 +30,7 @@ tabBtn.addEventListener("click", function () {
         if (activeTab) {
             list.push(activeTab.url);
             render(list);
+            localStorage.setItem("list", JSON.stringify(list));
         }
     })
 });
